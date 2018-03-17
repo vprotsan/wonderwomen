@@ -1,0 +1,30 @@
+<%= form_with(model: @photo, local: true, multipart: true) do |form| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <label for="file">File to Upload</label> <%= form.file_field "file" %>
+  </div>
+
+  <%# if @photo.nil? %>
+     <div class="field">
+       <%= form.label :product_id %><br>
+       <%= form.text_field :product_id %>
+     </div>
+  <%# else %>
+     <%#= form.hidden_field :product_id, value: @photo.product_id %>
+  <%# end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
