@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @user = User.find(params[:id])
   end
   def new
     @user = User.new
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Rainforest App!"
+      redirect_to @user
       # Handle a successful save.
     else
       render 'new'
