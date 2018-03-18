@@ -1,8 +1,12 @@
-<h1>Listing Products</h1>
+<p id="notice"><%= notice %></p>
+
+<h1>Products</h1>
 
 <table>
   <thead>
     <tr>
+      <th>Photos</th>
+      <th>Photo</th>
       <th>Name</th>
       <th>Description</th>
       <th>Price</th>
@@ -11,8 +15,13 @@
   </thead>
 
   <tbody>
-    <% @product.each do |product| %>
+    <% @products.each do |product| %>
       <tr>
+        <td>
+          <% if product.attaches.size > 0 %>
+            <%= image_tag product.attaches.first.picture.url, :size => "100x100" %>
+          <% end %>
+        </td>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
         <td><%= product.formatted_price %></td>

@@ -1,5 +1,11 @@
 <p id="notice"><%= notice %></p>
 
+<% if @product.attaches.size > 0 %>
+  <% @product.attaches.each do |attach| %>
+    <%= image_tag attach.picture.url, :size => "100x100" %>
+  <% end %>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -11,7 +17,7 @@
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Price in cents:</strong>
   <%= @product.formatted_price %>
 </p>
 

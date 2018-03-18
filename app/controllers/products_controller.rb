@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @product = Product.all
+    @products = Product.all
   end
 
   # GET /products/1
@@ -29,6 +29,19 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+
+        #start picture
+        if product_params[:attaches_picture].size > 0
+          product_params[:attaches_picture].each do | upload_io |
+            @attachment = Attach.new
+            @attachment.picture = upload_io
+            @attachment.attacheable_type = "Product"
+            @attachment.attacheable_id = @product.id
+            @attachment.save!
+          end
+        end
+        #end
+
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -41,8 +54,22 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   # PATCH/PUT /products/1.json
   def update
+
+    #start picture
+    if product_params[:attaches_picture]
+      product_params[:attaches_picture].each do | upload_io |
+        @attachment = Attach.new
+        @attachment.picture = upload_io
+        @attachment.attacheable_type = "Product"
+        @attachment.attacheable_id = @product.id
+        @attachment.save!
+      end
+    end
+    #end
+
     respond_to do |format|
       if @product.update(product_params)
+
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -70,6 +97,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :description, :price_in_cents)
+      params.require(:product).permit(:name, :description, :price_in_cents, :attaches_picture => [])
     end
 end

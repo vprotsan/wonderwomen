@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Comment:</strong>
+  <%= @review.comment %>
+</p>
+
+<p>
   <strong>Product:</strong>
   <%= @review.product.name %>
 </p>
@@ -9,7 +14,6 @@
 
 <% if @review.product.nil? %>
   <%= link_to 'Back', reviews_path %>
-
 <% else %>
-  <%= link_to 'Back', @review.product %>
+  <%= link_to 'Back', products_path %>
 <% end %>

@@ -1,6 +1,43 @@
 <h1>Editing Product</h1>
 
-<%= render 'form', product: @product %>
+<%= form_for @product do |form| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @product.attaches.size > 0 %>
+    <% @product.attaches.each do |attach| %>
+      <%= image_tag attach.picture.url, :size => "100x100" %>
+    <% end %>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :product_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :product_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price_in_cents %>
+    <%= form.number_field :price_in_cents, id: :product_price_in_cents %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 
 <%= link_to 'Show', @product %> |
 <%= link_to 'Back', products_path %>

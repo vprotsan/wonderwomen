@@ -1,10 +1,26 @@
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
+  attr_accessor :attaches_picture
+
+  #review
   validates :description, :name, presence: true
   validates :price_in_cents, numericality: {only_integer: true, greater_than: 0}
-  has_many :reviews
+  has_many :reviews, dependent: :delete_all
+  #end reviews
+
+  #pictures
+  # has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, validate_media_type: false
+  #validates_attachment :attacheable, content_type: { content_type: ["image/jpg", 'image/jpeg', 'image/png'] }
+  # validates :picture, attachment_presence: true
+  # validates_with AttachmentPresenceValidator, attributes: :picture
+  # has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }, validate_media_type: false
+  has_many :attaches, as: :attacheable, :dependent => :destroy
+  #has_many :attaches, :dependent => :destroy
+  #accepts_nested_attributes_for :attaches
+  #end pictures
+
 
   def formatted_price
     price_in_dollars = price_in_cents.to_f / 100
-    sprintf("%.2f", price_in_dollars)
+    format("%.2f", price_in_dollars)
   end
 end
