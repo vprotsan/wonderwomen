@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @pins = CLIENT.get_pins(query: 'cake') 
   end
 
   # GET /products/1

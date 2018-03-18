@@ -33,6 +33,18 @@
   </tbody>
 </table>
 
+<div class="Grid__Container">
+  <%#= @pins.inspect %>
+  <% @pins.data.each do |pin| %>
+    <%#= pin.url %>
+    <% html = Nokogiri::HTML(open(pin.url).read) %>
+    <%# html = html.xpath %>
+    <%=raw html.css('.gridCentered img') %>
+    <%#= Nokogiri::HTML('https://www.pinterest.com/pin/397020523378659439/') %>
+    <%#= image_tag pin.link %>
+  <% end %>
+</div>
+
 <br>
 
 <%= link_to 'New Product', new_product_path %>
