@@ -13,7 +13,11 @@
     </div>
   <% end %>
 
-  <%= form.file_field :picture %>
+  <% if @product.attaches.size > 0 %>
+    <% @product.attaches.each do |attach| %>
+      <%= image_tag attach.picture.url, :size => "100x100" %>
+    <% end %>
+  <% end %>
 
   <div class="field">
     <%= form.label :name %>

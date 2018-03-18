@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @product.picture.url(:thumb) %>
+<% if @product.attaches.size > 0 %>
+  <% @product.attaches.each do |attach| %>
+    <%= image_tag attach.picture.url, :size => "100x100" %>
+  <% end %>
+<% end %>
 
 <p>
   <strong>Name:</strong>

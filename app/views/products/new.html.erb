@@ -3,7 +3,7 @@
 <%= form_for @product do |form| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
       <ul>
       <% @product.errors.full_messages.each do |message| %>
@@ -13,7 +13,13 @@
     </div>
   <% end %>
 
-  <%= form.file_field :picture %>
+  <div class="control-group">
+   <%= form.label :pictures, :class => 'control-label' %>
+   <div class="controls">
+     <%= form.file_field :attaches_picture, multiple: true %>
+   </div>
+ </div>
+
 
   <div class="field">
     <%= form.label :name %>
