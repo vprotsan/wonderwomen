@@ -23,4 +23,9 @@ class Product < ApplicationRecord
     price_in_dollars = price_in_cents.to_f / 100
     format("%.2f", price_in_dollars)
   end
+
+  def self.yelp(lat, long)
+    return ProductsHelper::yelp(lat, long)
+  end
+
 end
