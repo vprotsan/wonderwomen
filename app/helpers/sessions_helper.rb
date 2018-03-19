@@ -3,6 +3,7 @@ module SessionsHelper
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    session[:role] = user.role
   end
   def remember(user)
     user.remember

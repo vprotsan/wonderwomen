@@ -5,12 +5,14 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    current_user
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @review = Review.new
+    current_user
   end
 
   # GET /products/new
