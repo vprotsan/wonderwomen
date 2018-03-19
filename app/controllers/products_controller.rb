@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
+    current_user
     @products = Product.all
     @pins = CLIENT.get_pins(query: 'cake')
     # byebug
@@ -27,6 +28,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @review = Review.new
+    current_user
   end
 
   # GET /products/new

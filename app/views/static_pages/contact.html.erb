@@ -1,6 +1,23 @@
 <% provide(:title, 'Contact Us') %>
 <h1>Contact Us</h1>
-<p>
-  Contact us at:
-  INSERT MAP API
-</p>
+
+<style>
+#map {
+  height: 400px;
+  width: 100%;
+}
+</style>
+<div id="map"></div>
+<script>
+function initMap(){
+  var options = {
+    zoom:2,
+    center: {lat:25.7617, lng:-80.1918}
+  }
+  var map = new
+  google.maps.Map(document.getElementById('map'), options);
+
+}
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ZBP8k-xxoRwydB36a1lkkkdiWf7rTYI&callback=initMap">
+    </script>

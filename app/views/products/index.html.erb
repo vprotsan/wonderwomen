@@ -19,12 +19,16 @@
         <div><%= product.formatted_price %></div>
       </a>
       <a><%= link_to 'Show', product %></a>
-      <a><%= link_to 'Edit', edit_product_path(product) %></a>
-      <a><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        <% if @current_user && @current_user.role == 1 %>
+          <a><%= link_to 'Edit', edit_product_path(product) %></a>
+          <a><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+        <% end %>
     <% end %>
   </div>
 
+<% if @current_user && @current_user.role == 1 %>
 <%= link_to 'New Product', new_product_path %>
+<% end %>
 
 <div class="grid">
   <% @pins.data.each do |pin| %>
