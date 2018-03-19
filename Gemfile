@@ -34,6 +34,10 @@ gem 'jquery-rails'
 gem "paperclip", "~> 5.2.1"
 gem 'hirb'
 gem 'mini_magick'
+gem 'pinterest-api'
+gem 'nokogiri'
+gem 'yelp'
+gem 'httparty'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

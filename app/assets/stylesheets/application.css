@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.Grid__Container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Grid__Container img {
+  flex: 1;
+  margin: 5px;
+}

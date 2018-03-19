@@ -4,8 +4,24 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
     current_user
+    @products = Product.all
+    @pins = CLIENT.get_pins(query: 'cake')
+    # byebug
+    @yelp = Product.yelp(params[:lat], params[:long])
+
+    if @yelp["error"] == nil
+      puts "*** pkpkpkpk ***"
+      render json: @yelp
+    end
+    # respond_to do |format|
+    #   if @yelp["error"] == nil
+    #     format.json { render :index}
+    #   end
+    # end
+    # puts "*** parsed response **"
+    # p @yelp["error"]
+    # puts "*****"
   end
 
   # GET /products/1
