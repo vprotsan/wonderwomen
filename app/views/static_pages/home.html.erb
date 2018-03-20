@@ -5,8 +5,25 @@
   <h2>
     Home Page
   </h2>
-
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
+
+<div>
+  <% @products.each do |product| %>
+    <a href="<%= product_path(product) %>">
+      <div>
+        <% if product.attaches.size > 0 %>
+          <%= image_tag product.attaches.first.picture.url, :size => "350x400" %>
+        <% end %>
+      </div>
+      <p><%= product.name %></p>
+      <div><%= product.formatted_price %></div>
+    </a>``
+      <% if @current_user && @current_user.role == 1 %>
+        <a><%= link_to 'Edit', edit_product_path(product) %></a>
+        <a><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+      <% end %>
+  <% end %>
 </div>
 
 <%= link_to image_tag("frog.png", alt: "rainforest logo")%>
