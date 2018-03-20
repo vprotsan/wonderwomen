@@ -1,4 +1,16 @@
 <% provide(:title, 'Contact Us') %>
+<h1>Contact Us</h1>
+
+<!-- <div class="container"></div> -->
+<style>
+#map {
+  height: 400px;
+  width: 100%;
+}
+/* div.container {
+  width: 30vw;
+} */
+</style>
 <div class="container">
 <img id="bakers" src="https://static.pexels.com/photos/264960/pexels-photo-264960.jpeg" alt"cookies">
   <div id="contacts_bakers" class="text-block">
@@ -6,16 +18,22 @@
   </div>
 </div>
 <div id="map"></div>
-<script>
-function initMap(){
-  var options = {
-    zoom:2,
-    center: {lat:25.7617, lng:-80.1918}
-  }
-  var map = new
-  google.maps.Map(document.getElementById('map'), options);
-
-}
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ZBP8k-xxoRwydB36a1lkkkdiWf7rTYI&callback=initMap">
-    </script>
+        <script>
+          function initMap() {
+            var uluru = {lat: 25.802825, lng: -80.204354};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 17,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        </script>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7ZBP8k-xxoRwydB36a1lkkkdiWf7rTYI&callback=initMap">
+        </script>
+      </body>
+<p><strong>Address:</strong> 549 NW 28th St, Miami, FL 33127</p>
+<p><strong>Phone:</strong> (305) 720-2422</p>
