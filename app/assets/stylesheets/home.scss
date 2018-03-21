@@ -1,3 +1,12 @@
+body {
+  padding-top: 0;
+}
+
+header {
+  position: relative!important;
+  top: 0;
+}
+
 div h1 {
 
   font-size: 150px;
@@ -5,17 +14,18 @@ div h1 {
 }
 
 #yelp-data {
-display: flex;
-
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
 }
 
 
 #yelp-data img {
-  margin-left: 100px;
-  margin-right: 100px;
-  padding-left: 10px;
-   height: 200px;
-   width: 200px;
+  // margin-left: 100px;
+  // margin-right: 100px;
+  // padding-left: 10px;
+  //  height: 200px;
+  //  width: 200px;
 }
 
 .thisisfood figcaption {
@@ -36,7 +46,151 @@ display: flex;
   width: 180px;
 }
 
+h2 {
+  margin-top: 48px!important;
+  font-family: 'Lobster', sans-serif!important;
+  color: #dc143c!important;
+  font-size: 48px!important;
+}
+
+#search-form {
+  min-width: 100px;
+  display: flex;
+  padding: 15px;
+}
+
+#search-form input[type="submit"]{
+  background: #dc143c;
+  color: #ffffff;
+  order: 2;
+  width: 95px;
+}
+
+#search-form input {
+  border-radius: 3px;
+  border: 0;
+}
+
 #buttonssearch {
   margin-left: 20px;
   width: 80px;
+}
+
+.product .price {
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.product .title {
+  font-size: 25px;
+  font-family: 'Lobster', sans-serif;
+  padding-top: 20px;
+
+  &:hover {
+    color: #dc143c;
+    text-decoration: none;
+  }
+}
+
+.featured-prod {
+  display: flex;
+  flex-wrap: wrap;
+
+  .each-product {
+    padding: 0 10px;
+    width: 33%;
+    box-sizing: border-box;
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a, .price {
+      text-align: center;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+#individual-prod {
+  display: flex;
+
+  & > div {
+    width: 50%;
+  }
+}
+
+.prod-description {
+  padding-left: 40px;
+  margin-bottom: 30px;
+
+  .btn.prod {
+    background: #dc143c;
+    color: #ffffff;
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
+    font-size: 20px;
+  }
+
+  .price {
+    font-size: 30px;
+    font-family: 'lobster';
+    padding: 30px 0;
+  }
+
+  .title {
+    font-size: 30px;
+    font-family: 'lobster';
+    padding: 20px 0 ;
+  }
+}
+
+.prod-footer {
+  margin-top: 30px;
+}
+
+.prod-footer, .prod-description {
+  width: 500px;
+  margin: 0 auto;
+}
+
+#yelp-data {
+  .item {
+    // display: flex;
+    // flex-direction: column;
+    width: 33%;
+
+    img {
+      display: block;
+      height: 200px!important;
+      width: auto!important;
+      padding: 0!important;
+      margin: 0 auto!important;
+    }
+
+    a {
+      h4 {
+        display: inline-block;
+      }
+
+      span {
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-left: 10px;
+      }
+    }
+
+    address {
+      padding-top: 20px;
+      
+      p {
+        font-size: 20px;
+      }
+    }
+  }
 }

@@ -251,6 +251,12 @@ input {
     width: 19%;
     margin: 0 5px;
     box-sizing: border-box;
+
+    .GrowthUnauthPinImage {
+      a {
+        width: 100%;
+      }
+    }
 }
 
 .Grid__Container div img {

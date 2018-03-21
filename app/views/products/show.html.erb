@@ -1,40 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<% if @product.attaches.size > 0 %>
-  <% @product.attaches.each do |attach| %>
-    <%= image_tag attach.picture.url, :size => "100x100" %>
-  <% end %>
-<% end %>
+<div id="individual-prod">
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <% if @product.attaches.size > 0 %>
+        <% @product.attaches.each_with_index do |attach, indx| %>
+          <div class="item carousel-item <%= indx == 0 ? "active" : nil %>">
+            <%= image_tag attach.picture.url %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <a class="left carousel-control" href="#carouselExampleSlidesOnly" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carouselExampleSlidesOnly" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+  <div class="prod-description">
+    <p class="title">
+      <%= @product.name %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+    <p>
+      <%= @product.description %>
+    </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @product.formatted_price %>
-</p>
+    <p class="price">$<%= @product.formatted_price %><button class="btn btn-default prod">Buy</button</p>
+  </div>
+</div>
 
-<h3>Reviews</h3>
-<% @product.reviews.each do |review| %>
-  <p>
-    <%= review.comment %>
-    <br>
-    Added on: <%= review.created_at %>
-  </p>
-<% end %>
-<% if @current_user && @current_user.role == 1 %>
-  <h3>New Review</h3>
-<%= render 'reviews/form' %>
-<% end %>
+<div class="prod-footer">
+    <h3>Comments:</h3>
+    <% @product.reviews.each do |review| %>
+      <p>
+        <%= review.comment %>
+        <br>
+        Added on: <%= review.created_at %>
+      </p>
+    <% end %>
+    <% if @current_user && @current_user.role == 1 %>
+      <h3>Add Comment</h3>
+    <%= render 'reviews/form' %>
+    <% end %>
 
-<% if @current_user && @current_user.role == 1 %>
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<% end %>
-<%= link_to 'Back', products_path %>
+    <% if @current_user && @current_user.role == 1 %>
+    <%= link_to 'Edit', edit_product_path(@product) %> |
+    <% end %>
+    <%= link_to 'Back', products_path %>
+</div>

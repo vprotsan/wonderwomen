@@ -17,8 +17,8 @@ $(document).ready(function(){
                 console.log(five.length);
                 five.forEach(function(item){
                   business = "<div class='item'>";
-                  business += "<a href="+ item.url+ "><h4>" + item.name + "</h4></a>";
-                  business += "<span>" +  item.rating + "</span>";
+                  business += "<a href="+ item.url+ "><h4>" + item.name + "</h4>";
+                  business += "<span>" +  item.rating + "</span></a>";
                   business += "<img src=" + item.image_url + " alt='" + item.name + "'>";
                   business += "<address><p>" + item.location.address1 + "</p>";
                   business += "<p>" + item.location.address3 + "</p>";

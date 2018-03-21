@@ -2,7 +2,7 @@
 
 <h1>Featured Products</h1>
 
-  <div class="thisisfood">
+  <!-- <div class="thisisfood">
     <figure>
     <img class= "piepie" id="apple" src='/assets/applepie.jpeg' height=267px; width=300px;>
     <figcaption>Apple Pie</figcaption>
@@ -36,29 +36,28 @@
     <figcaption>Pecan Pie</figcaption>
     <span> $15.00 </span>
   </figure>
-</div>
+  </div> -->
 
-
-    <% @products.each do |product| %>
-      <a>
-        <div>
+  <div class="featured-prod">
+      <% @products.each do |product| %>
+        <div class="each-product">
           <% if product.attaches.size > 0 %>
-            <%= image_tag product.attaches.first.picture.url, :size => "350x400" %>
+            <%= image_tag product.attaches.first.picture.url %>
+          <% end %>
+          <a href="<%= product_path(product) %>" class="product"><p class="title"><%= product.name %></p></a>
+          <div class="price">$ <%= product.formatted_price %></div>
+
+          <% if @current_user && @current_user.role == 1 %>
+            <a><%= link_to 'Edit', edit_product_path(product) %></a>
+            <a><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
           <% end %>
         </div>
-        <p><%= product.name %></p>
-        <p><%= product.description %></p>
-        <div><%= product.formatted_price %></div>
-      </a>
-      <a><%= link_to 'Show', product %></a>
-        <% if @current_user && @current_user.role == 1 %>
-          <a><%= link_to 'Edit', edit_product_path(product) %></a>
-          <a><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></a>
-        <% end %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-    <%= render 'partials/footer' %> 
-<% if @current_user && @current_user.role == 1 %>
-<%= link_to 'New Product', new_product_path %>
-<% end %>
+
+  <% if @current_user && @current_user.role == 1 %>
+  <%= link_to 'New Product', new_product_path %>
+  <% end %>
+  <%= render 'partials/footer' %>
 </div>
