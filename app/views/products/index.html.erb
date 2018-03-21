@@ -1,7 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Featured Products</h1>
-  <div>
+
+  <div class="thisisfood">
+    <figure>
+    <img class= "piepie" id="apple" src='/assets/applepie.jpeg' height=267px; width=300px;>
+    <figcaption>Apple Pie</figcaption>
+    <span> $15.00 </span>
+    </figure>
+    <figure>
+    <img class= "piepie" id="birth" src='/assets/birthdaycake.jpeg' height=267px; width=300px;>
+    <figcaption>Birthday Cake</figcaption>
+    <span> $15.00 </span>
+    </figure>
+    <figure>
+    <img class= "piepie" id="carrot" src='/assets/carrotcake.jpeg' height=267px; width=300px;>
+    <figcaption> Carrot Cake </figcaption>
+    <span> $15.00 </span>
+    </figure>
+  </div>
+
+  <div class="thisisfood">
+  <figure>
+    <img class= "piepie" id="choco" src='/assets/chococake.jpeg' height=267px; width=300px;>
+    <figcaption>Chocolate Cake </figcaption>
+    <span> $15.00 </span>
+  </figure>
+  <figure>
+    <img class= "piepie" id="peanut" src='/assets/peanutbutter.jpeg' height=267px; width=300px;>
+    <figcaption>PeanutButter Pie</figcaption>
+    <span> $15.00 </span>
+  </figure>
+  <figure>
+    <img class= "piepie" id="pecan" src='/assets/pecan.jpeg'  height=267px; width=300px;>
+    <figcaption>Pecan Pie</figcaption>
+    <span> $15.00 </span>
+  </figure>
+</div>
+
+
     <% @products.each do |product| %>
       <a>
         <div>
@@ -20,7 +57,8 @@
         <% end %>
     <% end %>
   </div>
-
+    <%= render 'partials/footer' %> 
 <% if @current_user && @current_user.role == 1 %>
 <%= link_to 'New Product', new_product_path %>
 <% end %>
+</div>

@@ -14,18 +14,8 @@
  *= require_self
  */
 
+
 #logo{
   font-family: 'Lobster', cursive;
   font-size: 32px;
-}
-
-
-.Grid__Container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.Grid__Container img {
-  flex: 1;
-  margin: 5px;
 }

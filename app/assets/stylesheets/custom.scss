@@ -3,6 +3,72 @@
 
 /* mixins, variables, etc. */
 
+.thisisfood{
+   box-sizing: border-box;
+   display: flex;
+ }
+
+ .thisisfood figcaption {
+   color: Crimson;
+   font-size: 30px;
+   margin-left: 25px;
+ }
+
+ .thisisfood span{
+   color: Crimson;
+   font-size: 20px;
+  margin-left: 25px;
+ }
+
+#apple{
+margin-left: 25px;
+  margin-bottom: 10px;
+  margin-right: 60px;
+
+}
+#birth{
+margin-left: 25px;
+  margin-bottom: 10px;
+    margin-right: 60px;
+}
+#carrot{
+margin-left: 25px;
+  margin-bottom: 10px;
+    margin-right: 60px;
+}
+#choco{
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+    margin-right: 60px;
+}
+#peanut{
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+    margin-right: 60px;
+}
+#pecan{
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+    margin-right: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 $gray-medium-light: #eaeaea;
 
@@ -47,6 +113,7 @@ h2 {
   text-align: center;
   font-weight: normal;
   color: $gray-light;
+
 }
 
 p {
@@ -173,4 +240,9 @@ input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.btn.btn-lg.btn-primary{
+  background-color: Khaki;
+  font-family: 'Lobster', cursive;
 }

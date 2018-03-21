@@ -2,9 +2,41 @@ div h1 {
 
   font-size: 150px;
   font-family: 'Lobster', cursive;
+}
+
+#yelp-data {
+display: flex;
 
 }
 
-// .fknbutton {
-//   background-color: red;
-// }
+
+#yelp-data img {
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-left: 10px;
+   height: 200px;
+   width: 200px;
+}
+
+.thisisfood figcaption {
+  color: Crimson;
+  font-size: 30px;
+  margin-left: 25px;
+}
+
+
+.Grid__Container .static{
+  float: left;
+  display: flex;
+
+}
+
+.static a {
+  float: left;
+  width: 180px;
+}
+
+#buttonssearch {
+  margin-left: 20px;
+  width: 80px;
+}
