@@ -52,9 +52,10 @@
       </a>
     </div>
   </div>
+  <h2>Featured products</h2>
   <div id="featured-products">
     <% @products.each do |product| %>
-      <a href="<%= product_path(product) %>">
+      <a href="<%= product_path(product) %>" class="">
         <div>
           <% if product.attaches.size > 0 %>
             <%= image_tag product.attaches.first.picture.url, :size => "350x400" %>
@@ -70,7 +71,9 @@
     <% end %>
   </div>
 
+  <h2>Closest bakeries</h2>
   <div id="yelp-data" data-csrf="<%= session[:_csrf_token] %>" ></div>
+  <h2>Ispiration</h2>
   <div class="grid">
     <% @pins.data.each do |pin| %>
           <% html = Nokogiri::HTML(open(pin.url).read) %>

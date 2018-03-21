@@ -174,3 +174,19 @@ input {
   width: auto;
   margin-left: 0;
 }
+
+.Grid__Container div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Grid__Container div .static {
+    width: 19%;
+    margin: 0 5px;
+    box-sizing: border-box;
+}
+
+.Grid__Container div img {
+  width: 100%!important;
+  height: auto!important;
+}
