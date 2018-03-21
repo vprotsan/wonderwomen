@@ -4,9 +4,8 @@ module ProductsHelper
     puts "before header lan and long here, #{lat}, #{long}"
 
     headers = {
-      "Authorization"  => "Bearer fJ_tV36-84JlZ2YKTFAoWkrnrS4PUYmLUx2ieD8IIxOgRg5iH4zChQs4YX3Vb7ZY3OzE0E1c8Z_aXsuF4ZkVquRtupCIMQqIENjaIlVVMJhp70fDm3fQVuT7DfyvWnYx",
-      "Cache-Control" => "no-cache",
-      "Postman-Token" => "402ab387-fcfa-44d0-bcbb-761f59c442d2"
+      "Authorization"  => ENV["YELP"]
+      # "Cache-Control" => "no-cache"
     }
 
     if lat and long

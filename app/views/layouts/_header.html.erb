@@ -3,10 +3,6 @@
   <br> <%= link_to "Bake Away", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <br>
-
-         <button type="button" class="btn btn-default">
-         <span class="glyphicon glyphicon-search"></span> Search</button>
         <li><%= link_to "Home",  root_path %></li>
         <li><%= link_to "Products", products_path %></li>
         <li><%= link_to "Contact Us", contact_path %></li>
@@ -27,6 +23,12 @@
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
         <% end %>
+        <li>
+          <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :name => nil %>
+          <% end %>
+        </li>
       </ul>
     </nav>
   </div>

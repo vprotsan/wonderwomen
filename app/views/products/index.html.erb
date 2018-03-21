@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="yelp-data">
-
-</div>
-
 <h1>Featured Products</h1>
-
   <div>
     <% @products.each do |product| %>
       <a>
@@ -29,10 +24,3 @@
 <% if @current_user && @current_user.role == 1 %>
 <%= link_to 'New Product', new_product_path %>
 <% end %>
-
-<div class="grid">
-  <% @pins.data.each do |pin| %>
-        <% html = Nokogiri::HTML(open(pin.url).read) %>
-        <%=raw html.css('.Grid__Container') %>
-  <% end %>
-</div>
