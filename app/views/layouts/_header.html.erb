@@ -3,7 +3,8 @@
   <br> <%= link_to "Bake Away", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-    
+        <br>
+
          <button type="button" class="btn btn-default">
          <span class="glyphicon glyphicon-search"></span> Search</button>
         <li><%= link_to "Home",  root_path %></li>
@@ -30,8 +31,3 @@
     </nav>
   </div>
 </header>
-
-<%= form_tag(products_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Products" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>

@@ -3,6 +3,7 @@
 
 /* mixins, variables, etc. */
 
+
 $gray-medium-light: #eaeaea;
 
 /* universal */
@@ -61,10 +62,10 @@ p {
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
-  text-transform: uppercase;
+  padding-bottom: 20px;
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
+
   &:hover {
     color: white;
     text-decoration: none;
