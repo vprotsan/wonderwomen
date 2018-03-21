@@ -1,6 +1,7 @@
 class Attach < ApplicationRecord
   belongs_to :attacheable, polymorphic: true
-  has_many :products, :dependent => :destroy
+  #has_many :products, :dependent => :destroy
+  #belongs_to :products
 
   #paperclip
   has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" }

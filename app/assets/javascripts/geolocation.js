@@ -5,14 +5,17 @@ $(document).ready(function(){
             var latitude  = position.coords.latitude;
             var longitude = position.coords.longitude;
             console.log("Latitude : "+latitude+" Longitude : "+longitude);
-
+            var csrf = $("#yelp-data").data("csrf");
             $.ajax({
               method: "POST",
-              url: "/products",
-              data: { lat: latitude, long: longitude },
+              url: "/",
+              data: { lat: latitude, long: longitude, authenticity_token: csrf },
               dataType: "json",
               success: function(response, status){
-                response["businesses"].forEach(function(item){
+                console.log(response["businesses"].length);
+                var five = response["businesses"].slice(0,3);
+                console.log(five.length);
+                five.forEach(function(item){
                   business = "<div class='item'>";
                   business += "<a href="+ item.url+ "><h4>" + item.name + "</h4></a>";
                   business += "<span>" +  item.rating + "</span>";
@@ -21,7 +24,7 @@ $(document).ready(function(){
                   business += "<p>" + item.location.address3 + "</p>";
                   business += "<p>" + item.location.city + "</p>";
                   business += "<p>" + item.location.zip_code + "</p></address>";
-                  $(".yelp-data").append(business);
+                  $("#yelp-data").append(business);
                 });
               }
             })
