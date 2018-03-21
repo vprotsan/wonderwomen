@@ -6,6 +6,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+  <br>
+  <br>
   <div class="container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -52,8 +54,26 @@
       </a>
     </div>
   </div>
-  <h2>Featured products</h2>
-  <div id="featured-products">
+
+  <h2>Featured products<h2>
+    <div class="thisisfood">
+      <figure>
+      <img class= "piepie" id="apple" src='/assets/applepie.jpeg' height=267px; width=300px;>
+      <figcaption>Apple Pie</figcaption>
+      <span> $15.00 </span>
+      </figure>
+      <figure>
+      <img class= "piepie" id="birth" src='/assets/birthdaycake.jpeg' height=267px; width=300px;>
+      <figcaption>Birthday Cake</figcaption>
+      <span> $15.00 </span>
+      </figure>
+      <figure>
+      <img class= "piepie" id="carrot" src='/assets/carrotcake.jpeg' height=267px; width=300px;>
+      <figcaption> Carrot Cake </figcaption>
+      <span> $15.00 </span>
+      </figure>
+    </div>
+
     <% @products.each do |product| %>
       <a href="<%= product_path(product) %>" class="">
         <div>
@@ -70,14 +90,22 @@
         <% end %>
     <% end %>
   </div>
+<<<<<<< HEAD
 
   <h2>Closest bakeries</h2>
   <div id="yelp-data" data-csrf="<%= session[:_csrf_token] %>" ></div>
   <h2>Ispiration</h2>
   <div class="grid">
+=======
+ <h2>Closest Bakeries<h2>
+  <div id="yelp-data" data-csrf="<%= session[:_csrf_token] %>" ></div>
+  <h2>Inspirations<h2>
+  <div class="grid" >
+>>>>>>> 97ea7ed30e80f8f1e332e8a60aad0ecb1a576e2e
     <% @pins.data.each do |pin| %>
           <% html = Nokogiri::HTML(open(pin.url).read) %>
           <%=raw html.css('.Grid__Container') %>
+
     <% end %>
   </div>
   <%= yield %>
