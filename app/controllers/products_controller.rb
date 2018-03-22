@@ -10,7 +10,6 @@ class ProductsController < ApplicationController
        @products = Product.where(name: params[:search])
        p @products
     else
-       # @products = Product.all.order("created_at DESC")
        @products = Product.all
     end
 

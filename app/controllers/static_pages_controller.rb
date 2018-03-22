@@ -1,12 +1,5 @@
 class StaticPagesController < ApplicationController
-  def home
-    # if params[:search].present?
-    #    @products = Product.where(name: params[:search])
-    #    p @products
-    # else
-    #    # @products = Product.all.order("created_at DESC")
-    #    @products = Product.all.sample(3)
-    # end
+  def homes
     @products = Product.all.sample(3)
 
     #pinterest
